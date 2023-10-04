@@ -16,6 +16,10 @@
 		60D67D842ACD9B6100EA7082 /* XChangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67D832ACD9B6100EA7082 /* XChangeUITests.swift */; };
 		60D67D862ACD9B6100EA7082 /* XChangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67D852ACD9B6100EA7082 /* XChangeUITestsLaunchTests.swift */; };
 		60D67DA62ACDA0A100EA7082 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67DA52ACDA0A100EA7082 /* MainAppView.swift */; };
+		60D67DAB2ACDA31A00EA7082 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67DAA2ACDA31A00EA7082 /* NetworkManager.swift */; };
+		60D67DAF2ACDA3B900EA7082 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67DAE2ACDA3B900EA7082 /* NetworkEndpoint.swift */; };
+		60D67DB12ACDA4E300EA7082 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67DB02ACDA4E300EA7082 /* NetworkError.swift */; };
+		60D67DB52ACDB75C00EA7082 /* GeneralErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67DB42ACDB75C00EA7082 /* GeneralErrorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		60D67D832ACD9B6100EA7082 /* XChangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeUITests.swift; sourceTree = "<group>"; };
 		60D67D852ACD9B6100EA7082 /* XChangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		60D67DA52ACDA0A100EA7082 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		60D67DAA2ACDA31A00EA7082 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		60D67DAE2ACDA3B900EA7082 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		60D67DB02ACDA4E300EA7082 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		60D67DB42ACDB75C00EA7082 /* GeneralErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralErrorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 		60D67DA32ACDA07800EA7082 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				60D67DA92ACDA30900EA7082 /* Network */,
 				60D67DA42ACDA08A00EA7082 /* Persistence */,
 			);
 			path = Manager;
@@ -171,6 +180,25 @@
 				60D67D6E2ACD9B6100EA7082 /* XChange.xcdatamodeld */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		60D67DA92ACDA30900EA7082 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				60D67DB62ACDB76300EA7082 /* Model */,
+				60D67DAA2ACDA31A00EA7082 /* NetworkManager.swift */,
+				60D67DAE2ACDA3B900EA7082 /* NetworkEndpoint.swift */,
+				60D67DB02ACDA4E300EA7082 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		60D67DB62ACDB76300EA7082 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60D67DB42ACDB75C00EA7082 /* GeneralErrorModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,9 +332,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				60D67D6D2ACD9B6100EA7082 /* Persistence.swift in Sources */,
+				60D67DB12ACDA4E300EA7082 /* NetworkError.swift in Sources */,
 				60D67DA62ACDA0A100EA7082 /* MainAppView.swift in Sources */,
+				60D67DB52ACDB75C00EA7082 /* GeneralErrorModel.swift in Sources */,
+				60D67DAB2ACDA31A00EA7082 /* NetworkManager.swift in Sources */,
 				60D67D702ACD9B6100EA7082 /* XChange.xcdatamodeld in Sources */,
 				60D67D642ACD9B5F00EA7082 /* XChangeApp.swift in Sources */,
+				60D67DAF2ACDA3B900EA7082 /* NetworkEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
