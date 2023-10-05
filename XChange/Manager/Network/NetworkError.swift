@@ -16,7 +16,7 @@ import Foundation
 /**
  A protocol that defines the common properties for network errors.
  */
-public protocol NetworkErrorProtocol: Error {
+protocol NetworkErrorProtocol: Error {
     /// A descriptive message for the error.
     var message: String { get }
     /// The HTTP status code associated with the error.
@@ -44,7 +44,7 @@ enum NetworkError: NetworkErrorProtocol {
      - statusCode: The HTTP status code associated with the error.
      - errorDescription: A descriptive message for the error.
      */
-    public init(
+    init(
         statusCode: Int,
         errorDescription: String?
     ) {
