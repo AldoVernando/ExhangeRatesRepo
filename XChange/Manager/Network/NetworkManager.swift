@@ -62,6 +62,7 @@ final class NetworkManager: NetworkManagerProtocol {
             return try decoder.decode(T.self, from: data)
         } catch {
             print("[Log] Throw error while requesting url.")
+            print("[Error] \(error.localizedDescription)")
             
             if let networkError = error as? NetworkError {
                 throw networkError
@@ -97,6 +98,7 @@ extension NetworkManager {
             )
         } catch {
             print("[Log] Throw error while decoding general error model.")
+            print("[Error] \(error.localizedDescription)")
             throw NetworkError.unknown
         }
     }

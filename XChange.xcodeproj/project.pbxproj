@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		603A45F22ACF110800D34F99 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603A45F12ACF110800D34F99 /* CurrencyModel.swift */; };
+		603A45F52ACF157700D34F99 /* CurrencyPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603A45F42ACF157700D34F99 /* CurrencyPersistenceManager.swift */; };
 		60D67D642ACD9B5F00EA7082 /* XChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67D632ACD9B5F00EA7082 /* XChangeApp.swift */; };
 		60D67D682ACD9B6100EA7082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60D67D672ACD9B6100EA7082 /* Assets.xcassets */; };
 		60D67D6B2ACD9B6100EA7082 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60D67D6A2ACD9B6100EA7082 /* Preview Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		603A45F12ACF110800D34F99 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		603A45F42ACF157700D34F99 /* CurrencyPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyPersistenceManager.swift; path = ../../../../../CurrencyPersistenceManager.swift; sourceTree = "<group>"; };
 		60D67D602ACD9B5F00EA7082 /* XChange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XChange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D67D632ACD9B5F00EA7082 /* XChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeApp.swift; sourceTree = "<group>"; };
 		60D67D672ACD9B6100EA7082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		603A45F02ACF10FB00D34F99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				603A45F12ACF110800D34F99 /* CurrencyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		60D67D572ACD9B5F00EA7082 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +188,8 @@
 		60D67DA42ACDA08A00EA7082 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				603A45F42ACF157700D34F99 /* CurrencyPersistenceManager.swift */,
+				603A45F02ACF10FB00D34F99 /* Model */,
 				60D67D6C2ACD9B6100EA7082 /* Persistence.swift */,
 				60D67D6E2ACD9B6100EA7082 /* XChange.xcdatamodeld */,
 			);
@@ -331,11 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603A45F22ACF110800D34F99 /* CurrencyModel.swift in Sources */,
 				60D67D6D2ACD9B6100EA7082 /* Persistence.swift in Sources */,
 				60D67DB12ACDA4E300EA7082 /* NetworkError.swift in Sources */,
 				60D67DA62ACDA0A100EA7082 /* MainAppView.swift in Sources */,
 				60D67DB52ACDB75C00EA7082 /* GeneralErrorModel.swift in Sources */,
 				60D67DAB2ACDA31A00EA7082 /* NetworkManager.swift in Sources */,
+				603A45F52ACF157700D34F99 /* CurrencyPersistenceManager.swift in Sources */,
 				60D67D702ACD9B6100EA7082 /* XChange.xcdatamodeld in Sources */,
 				60D67D642ACD9B5F00EA7082 /* XChangeApp.swift in Sources */,
 				60D67DAF2ACDA3B900EA7082 /* NetworkEndpoint.swift in Sources */,

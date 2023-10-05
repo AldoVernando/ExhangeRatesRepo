@@ -14,6 +14,7 @@ struct XChangeApp: App {
     var body: some Scene {
         WindowGroup {
             MainAppView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
