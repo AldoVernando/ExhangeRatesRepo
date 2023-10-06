@@ -99,6 +99,10 @@ extension NetworkManager {
         } catch {
             print("[Log] Throw error while decoding general error model.")
             print("[Error] \(error.localizedDescription)")
+            
+            if let networkError = error as? NetworkError {
+                throw networkError
+            }
             throw NetworkError.unknown
         }
     }
@@ -116,7 +120,7 @@ extension NetworkManager {
      - Returns: An optional URLRequest.
      */
     private func constructUrlRequest(_ data: NetworkEndpoint) -> URLRequest? {
-        let url: String = data.baseUrl + "?" + generateQueryParams(data.queryParams)
+        let url: String = data.baseUrl + data.endpoint + "?" + generateQueryParams(data.queryParams)
         guard let serviceUrl: URL = .init(string: url) else { return nil }
         
         var request: URLRequest = .init(url: serviceUrl)
