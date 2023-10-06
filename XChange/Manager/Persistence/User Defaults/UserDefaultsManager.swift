@@ -12,41 +12,9 @@
 import Foundation
 
 /**
- A protocol that defines the structure of a user defaults manager for managing user-specific settings and preferences.
- */
-protocol UserDefaultsManagerProtocol {
-    /**
-     Sets the value for a specific user defaults key.
-     
-     - Parameters:
-     - key: The user defaults key to set the value for.
-     - value: The value to set for the specified key.
-     */
-    static func setValue(forKey key: UserDefaultsKey, value: Any)
-    
-    /**
-     Retrieves the value associated with a specific user defaults key.
-     
-     - Parameters:
-     - key: The user defaults key to retrieve the value for.
-     
-     - Returns: The value associated with the specified key, or nil if no value is found.
-     */
-    static func getValue(forKey key: UserDefaultsKey) -> Any?
-    
-    /**
-     Removes the value associated with a specific user defaults key.
-     
-     - Parameters:
-     - key: The user defaults key to remove the value for.
-     */
-    static func removeValue(forKey key: UserDefaultsKey)
-}
-
-/**
  A class for managing user defaults in your application.
  */
-final class UserDefaultsManager: UserDefaultsManagerProtocol {
+final class UserDefaultsManager {
     /// The shared instance of UserDefaults, which provides access to user defaults storage.
     static let defaults: UserDefaults = .standard
     

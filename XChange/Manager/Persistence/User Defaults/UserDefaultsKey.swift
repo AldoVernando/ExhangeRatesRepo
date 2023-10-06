@@ -23,8 +23,8 @@ protocol UserDefaultsKey {
  An enumeration that provides predefined user defaults keys for accessing stored values.
  */
 enum CacheKey: String, UserDefaultsKey {
-    /// A user defaults key for accessing the latest API request timestamp.
-    case LATEST_API_REQUEST_TIMESTAMP
+    /// A user defaults key for accessing the latest Currency Rate API request timestamp.
+    case LATEST_CURRENCY_RATE_REQUEST_TIMESTAMP
     
     /**
      The string value associated with the user defaults key.
