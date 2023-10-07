@@ -48,50 +48,22 @@ final class DashboardViewModel: ObservableObject {
     @Published var currenyRates: [CurrencyValueModel] = []
     
     private let service: ExchangeRateServiceProtocol
-    private var cancellable: Set<AnyCancellable> = .init()
-    
-    private var isCalculation: Bool = true
+    private var cancellable: Set<AnyCancellable>
+    private var isCalculation: Bool
     
     // Initialization: It initializes the view model, including setting up Combine publishers and initial values.
     init(
         service: ExchangeRateServiceProtocol
     ) {
         self.service = service
+        self.cancellable = .init()
+        self.isCalculation = true
         
-        // Observing Textfield Changes: It observes changes in the textfields for both base and target currencies using `TextfieldObserver`. It debounces text changes to avoid unnecessary calculations.
-        baseCurrencyTextfield
-            .$debouncedText
-            .sink { [weak self] value in
-                guard let self = self,
-                      !self.isCalculation
-                else {
-                    self?.isCalculation = false
-                    return
-                }
-                
-                self.baseCurrency.value = value.doubleValue
-                self.convertCurrency(from: self.baseCurrency, to: self.targetCurrency)
-            }
-            .store(in: &cancellable)
-        
-        targetCurrencyTextfield
-            .$debouncedText
-            .sink { [weak self] value in
-                guard let self = self,
-                    !self.isCalculation
-                else {
-                    self?.isCalculation = false
-                    return
-                }
-                
-                self.targetCurrency.value = value.doubleValue
-                self.convertCurrency(from: self.targetCurrency, to: self.baseCurrency)
-            }
-            .store(in: &cancellable)
-        
+        setObservers()
     }
 }
 
+// MARK: - View Interactions
 extension DashboardViewModel {
     
     /**
@@ -136,7 +108,69 @@ extension DashboardViewModel {
     }
 }
 
-// Service
+//MARK: - Logic Handle
+extension DashboardViewModel {
+    
+    /**
+     Observing Textfield Changes: It observes changes in the textfields for both base and target currencies using `TextfieldObserver`. It debounces text changes to avoid unnecessary calculations.
+     */
+    private func setObservers() {
+        baseCurrencyTextfield
+            .$debouncedText
+            .sink { [weak self] value in
+                guard let self = self,
+                      !self.isCalculation
+                else {
+                    self?.isCalculation = false
+                    return
+                }
+                
+                self.baseCurrency.value = value.doubleValue
+                self.convertCurrency(from: self.baseCurrency, to: self.targetCurrency)
+            }
+            .store(in: &cancellable)
+        
+        targetCurrencyTextfield
+            .$debouncedText
+            .sink { [weak self] value in
+                guard let self = self,
+                      !self.isCalculation
+                else {
+                    self?.isCalculation = false
+                    return
+                }
+                
+                self.targetCurrency.value = value.doubleValue
+                self.convertCurrency(from: self.targetCurrency, to: self.baseCurrency)
+            }
+            .store(in: &cancellable)
+    }
+    
+    /**
+     Performs currency conversion based on the exchange rate between the base and target currencies. It updates the values and text in the textfields for both currencies.
+     - Parameters:
+       - `base`: The base currency model.
+       - `target`: The target currency model.
+     - Usage: Called when the user enters values in the currency textfields.
+     */
+    private func convertCurrency(from base: CurrencyValueModel, to target: CurrencyValueModel) {
+        guard base.value > 0 else { return }
+        isCalculation = true
+        
+        var convertedValue: Double
+        if base.code == Constant.DEFAULT_BASE_CURRENCY_CODE {
+            convertedValue = base.value * target.rate
+            targetCurrency.value = convertedValue
+            targetCurrencyTextfield.text = String(format: "%.2f", convertedValue)
+        } else {
+            convertedValue = base.value / base.rate
+            baseCurrency.value = convertedValue
+            baseCurrencyTextfield.text = String(format: "%.2f", convertedValue)
+        }
+    }
+}
+
+// MARK: - Service
 extension DashboardViewModel {
     
     /**
@@ -169,29 +203,6 @@ extension DashboardViewModel {
         } catch {
             print("[Log] Throw error while fetching currency rates data.")
             print("[Error] \(error.localizedDescription)")
-        }
-    }
-    
-    /**
-     Performs currency conversion based on the exchange rate between the base and target currencies. It updates the values and text in the textfields for both currencies.
-     - Parameters:
-       - `base`: The base currency model.
-       - `target`: The target currency model.
-     - Usage: Called when the user enters values in the currency textfields.
-     */
-    private func convertCurrency(from base: CurrencyValueModel, to target: CurrencyValueModel) {
-        guard base.value > 0 else { return }
-        isCalculation = true
-        
-        var convertedValue: Double
-        if base.code == Constant.DEFAULT_BASE_CURRENCY_CODE {
-            convertedValue = base.value * target.rate
-            targetCurrency.value = convertedValue
-            targetCurrencyTextfield.text = String(format: "%.2f", convertedValue)
-        } else {
-            convertedValue = base.value / base.rate
-            baseCurrency.value = convertedValue
-            baseCurrencyTextfield.text = String(format: "%.2f", convertedValue)
         }
     }
 }
