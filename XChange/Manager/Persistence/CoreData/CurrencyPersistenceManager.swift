@@ -46,6 +46,12 @@ protocol CurrencyPersistenceManagerProtocol {
      */
     func delete(data model: CurrencyRateModel)
     
+    /**
+     Checks if a currency data entry exists.
+     
+     - Parameters:
+     - model: The currency model to be checked.
+     */
     func isDataExists(data model: CurrencyRateModel) -> Bool
 }
 
@@ -163,6 +169,12 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
         }
     }
     
+    /**
+     Checks if a currency data entry exists.
+     
+     - Parameters:
+     - model: The currency model to be checked.
+     */
     func isDataExists(data model: CurrencyRateModel) -> Bool {
         let managedContext = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "Currency")

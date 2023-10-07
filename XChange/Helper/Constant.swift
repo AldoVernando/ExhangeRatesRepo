@@ -18,11 +18,14 @@ struct Constant {
     // MARK: - Services
     
     /// The key for accessing the application ID in the app's Info.plist file.
-    static let APP_ID = "APP_ID"
+    static let APP_ID: String = "APP_ID"
     
     /// The key for the "Authorization" header in HTTP requests.
-    static let AUTHORIZATION = "Authorization"
+    static let AUTHORIZATION: String = "Authorization"
     
     /// The key for accessing the base URL for exchange rate-related network requests in the app's Info.plist file.
-    static let BASE_URL = "EXCHANGE_RATE_BASE_URL"
+    static let BASE_URL: String = "EXCHANGE_RATE_BASE_URL"
+    
+    /// The time interval in minutes for cache data to be considered valid.
+    static let CACHE_TIME_OUT: Int = 30
 }

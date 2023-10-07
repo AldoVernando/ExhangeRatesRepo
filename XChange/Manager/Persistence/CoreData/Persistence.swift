@@ -5,13 +5,28 @@
 //  Created by Aldo Vernando on 04/10/23.
 //
 
+/**
+ This file defines the `PersistenceController` struct, which is responsible for managing the Core Data stack and provides a shared instance of the Core Data container. This documentation outlines the purpose of the `PersistenceController` and its role in managing Core Data in the application.
+ 
+ ### Overview
+ - `shared`: A static property that provides a shared instance of the `PersistenceController`.
+ - `container`: The Core Data container used to manage the data store.
+ 
+ The `PersistenceController` struct encapsulates the Core Data stack initialization and provides a convenient way to access the Core Data container.
+ */
+
 import CoreData
 
 struct PersistenceController {
+    /// A shared instance of the PersistenceController.
     static let shared = PersistenceController()
 
+    /// The Core Data container used to manage the data store.
     let container: NSPersistentContainer
 
+    /// Initializes the Core Data stack.
+    ///
+    /// - Parameter inMemory: A boolean value indicating whether to use an in-memory store.
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "XChange")
         if inMemory {

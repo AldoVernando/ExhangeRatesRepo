@@ -8,25 +8,45 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @ObservedObject private var vm: DashboardViewModel = .init()
-    
+    @ObservedObject private var vm: DashboardViewModel = .init(
+        service: ExchangeRateService(
+            network: NetworkManager(),
+            storage: CurrencyPersistenceManager()
+        )
+    )
+        
     var body: some View {
-        VStack(spacing: 20) {
-            CurrencyExchangeView(
-                baseSymbol: vm.baseSymbol,
-                targetSymbol: vm.targetSymbol,
-                baseValue: vm.baseValue,
-                targetValue: 3000,
-                onTargetCurrencyTapped: {
-                    print("Tapped")
-                }
-            )
+        ZStack(alignment: .topTrailing) {
+            VStack(spacing: 20) {
+                
+                CurrencyExchangeView(
+                    base: vm.baseCurrency,
+                    target: vm.targetCurrency,
+                    onTargetCurrencyTapped: vm.onTargetCurrencyTapped
+                )
+                
+                textfieldView()
+                    .padding(.horizontal, 2)
+                
+                Spacer()
+            }
             
-            textfieldView()
-            
-            Spacer()
+            if !vm.isDropdownHidden {
+                DropdownView(
+                    items: vm.currenyRates,
+                    onItemTapped: { item in
+                        vm.onTargetCurrencySelected(to: item)
+                    }
+                )
+                .offset(x: 0, y: 85)
+                .opacity(vm.isDropdownHidden ? 0 : 1)
+            }
         }
         .padding()
+        .dismissKeyboardHandler()
+        .onAppear {
+            vm.intiateView()
+        }
     }
 }
 
@@ -35,7 +55,7 @@ extension DashboardView {
     @ViewBuilder private func textfieldView() -> some View {
         HStack(alignment: .center, spacing: 8) {
             Text("$")
-                .foregroundColor(Color("gray-black"))
+                .foregroundColor(Color.blackGray)
                 .fontWeight(.semibold)
                 .font(.title)
             
@@ -47,8 +67,7 @@ extension DashboardView {
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(lineWidth: 2)
-        )
-    }
+        )    }
 }
 
 struct DashboardView_Previews: PreviewProvider {

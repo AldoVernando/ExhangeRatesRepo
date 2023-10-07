@@ -12,6 +12,7 @@ An extension for the String type, providing methods and properties to simplify w
 */
 extension String {
     
+    /// A computed property that converts a string to its double value representation.
     var doubleValue: Double {
         return (self as NSString).doubleValue
     }

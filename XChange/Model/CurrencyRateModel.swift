@@ -14,7 +14,7 @@ import Foundation
 /**
  A structure representing a currency with its code, name, and exchange rate.
  */
-struct CurrencyRateModel{
+struct CurrencyRateModel {
     // The unique code representing the currency (e.g., JPY, EUR).
     let code: String
     

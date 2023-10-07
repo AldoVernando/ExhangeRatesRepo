@@ -6,26 +6,31 @@
 //
 
 /**
- This file defines a SwiftUI `View` named `CurrencyExchangeView` for displaying currency exchange information. It includes the exchange rate between a base currency and a target currency, as well as user interactions to switch the target currency. This documentation provides an overview of the `CurrencyExchangeView` structure and its purpose.
+ This file defines a SwiftUI view, `CurrencyExchangeView`, for displaying currency exchange information and handling user interactions to switch the target currency. This documentation provides an overview of the view, its properties, and usage.
  
  ### Overview
- - `baseSymbol`: The symbol of the base currency.
- - `targetSymbol`: The symbol of the target currency.
- - `baseValue`: The value of the base currency.
- - `targetValue`: The value of the target currency.
+ - `CurrencyExchangeView`: A SwiftUI view that displays currency exchange information with a customizable base and target currency. Users can tap the target currency to switch it.
+ - `base`: The base currency to display.
+ - `target`: The target currency to display.
  - `onTargetCurrencyTapped`: A closure to handle when the target currency is tapped.
  
- The view consists of two custom shapes representing the base and target currencies, with their respective values and symbols displayed. Tapping the target currency section triggers the `onTargetCurrencyTapped` closure.
-
+ This view is designed for presenting currency exchange details in a user-friendly format, allowing users to interact with and switch the target currency.
+ 
  ### Example
  CurrencyExchangeView(
-    baseSymbol: "USD",
-    targetSymbol: "THB",
-    baseValue: 200,
-    targetValue: 3000,
-    onTargetCurrencyTapped: {
-        print("Tapped")
-    }
+     base: .init(
+         code: "USD",
+         name: "United States Dollar",
+         value: 0.0
+     ),
+     target: .init(
+         code: "JPY",
+         name: "Japanese Yen",
+         value: 0.0
+     ),
+     onTargetCurrencyTapped: {
+         print("Tapped")
+     }
  )
  */
 
@@ -35,17 +40,11 @@ import SwiftUI
  A SwiftUI View for displaying currency exchange information and handling user interactions to switch the target currency.
  */
 struct CurrencyExchangeView: View {
-    /// The symbol of the base currency.
-    let baseSymbol: String
+    /// The base currency.
+    let base: CurrencyValueModel
     
-    /// The symbol of the target currency.
-    let targetSymbol: String
-    
-    /// The value of the base currency.
-    let baseValue: Double
-    
-    /// The value of the target currency.
-    let targetValue: Double
+    /// The  target currency.
+    let target: CurrencyValueModel
     
     /// A closure to handle when the target currency is tapped.
     let onTargetCurrencyTapped: () -> Void
@@ -53,27 +52,27 @@ struct CurrencyExchangeView: View {
     var body: some View {
         ZStack {
             CustomeExchangeShape()
-                .fill(Color("dark-gray"))
+                .fill(Color.darkGray)
                 .frame(height: 75)
                 .offset(x: 20)
-                .background(Color("light-gray"))
+                .background(Color.lightGray)
                 .cornerRadius(8)
                 .onTapGesture(perform: onTargetCurrencyTapped)
             
             CustomeExchangeShape()
-                .fill(Color("gray-black"))
+                .fill(Color.blackGray)
                 .frame(height: 75)
                 .cornerRadius(8)
             
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(baseSymbol)
+                    Text(base.code)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .font(.title)
                     
-                    Text(String(baseValue.currency))
-                        .foregroundColor(Color("light-gray"))
+                    Text(String(base.value.currency))
+                        .foregroundColor(Color.lightGray)
                         .fontWeight(.semibold)
                         .font(.headline)
                         .truncationMode(.tail)
@@ -85,7 +84,7 @@ struct CurrencyExchangeView: View {
                 
                 VStack(alignment: .trailing, spacing: 4) {
                     HStack(spacing: 8) {
-                        Text(targetSymbol)
+                        Text(target.code)
                             .foregroundColor(.black)
                             .fontWeight(.bold)
                             .font(.title)
@@ -95,7 +94,7 @@ struct CurrencyExchangeView: View {
                             .frame(width: 20, height: 20)
                     }
                     
-                    Text(String(targetValue.currency))
+                    Text(String(target.value.currency))
                         .foregroundColor(.gray)
                         .fontWeight(.semibold)
                         .font(.headline)
@@ -113,10 +112,16 @@ struct CurrencyExchangeView: View {
 struct CurrencyExchangeView_Previews: PreviewProvider {
     static var previews: some View {
         CurrencyExchangeView(
-            baseSymbol: "USD",
-            targetSymbol: "THB",
-            baseValue: 200,
-            targetValue: 3000,
+            base: .init(
+                code: "USD",
+                name: "United States Dollar",
+                value: 0.0
+            ),
+            target: .init(
+                code: "JPY",
+                name: "Japanese Yen",
+                value: 0.0
+            ),
             onTargetCurrencyTapped: {
                 print("Tapped")
             }

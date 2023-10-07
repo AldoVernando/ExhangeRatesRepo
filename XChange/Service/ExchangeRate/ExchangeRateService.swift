@@ -12,14 +12,14 @@
 import Foundation
 
 /**
- A protocol defining the structure of a service for fetching exchange rate data, currency information, and usage details.
+ A protocol defining the structure of a service for fetching currency rate.
  */
 protocol ExchangeRateServiceProtocol {
     func fetchCurrencyRate() async throws -> [CurrencyRateModel]?
 }
 
 /**
- A class that implements the `ExchangeRateServiceProtocol` for fetching exchange rate data, currency information, and usage details.
+ A class that implements the `ExchangeRateServiceProtocol` for fetching currency rate.
  */
 final class ExchangeRateService: ExchangeRateServiceProtocol {
     private let network: NetworkManagerProtocol
@@ -28,7 +28,9 @@ final class ExchangeRateService: ExchangeRateServiceProtocol {
     /**
      Initializes an instance of `ExchangeRateService`.
      
-     - Parameter network: An instance conforming to the `NetworkManagerProtocol` for making network requests.
+     - Parameters:
+         - network: An instance conforming to the `NetworkManagerProtocol` for making network requests.
+         - storage : An instance conforming to the `CurrencyPersistenceManagerProtocol` for managing currency data.
      */
     init(
         network: NetworkManagerProtocol,
@@ -38,6 +40,12 @@ final class ExchangeRateService: ExchangeRateServiceProtocol {
         self.storage = storage
     }
     
+    /**
+     Fetches currency rate data asynchronously and caches it.
+     
+     - Returns: An array of `CurrencyRateModel` representing the currency rates or `nil` if the data is not available.
+     - Throws: A `NetworkError` if the network request fails or if there's an issue with the response.
+     */
     func fetchCurrencyRate() async throws -> [CurrencyRateModel]? {
         if isCacheDataValid(for: CacheKey.LATEST_CURRENCY_RATE_REQUEST_TIMESTAMP),
            let cachedData: [CurrencyRateModel] = storage.retrieve(), !cachedData.isEmpty
@@ -128,12 +136,18 @@ extension ExchangeRateService {
 
 extension ExchangeRateService {
     
+    /**
+     Checks if the cached data is still valid based on a specified time interval.
+     
+     - Parameter key: A `UserDefaultsKey` representing the key used to store the cache timestamp.
+     - Returns: A boolean value indicating whether the cached data is still valid (true) or outdated (false).
+     */
     private func isCacheDataValid(for key: UserDefaultsKey) -> Bool {
         guard let latestTimestamp: Date = UserDefaultsManager.getValue(forKey: key) as? Date,
               let minuteDiff: Int = latestTimestamp.timeDiff(for: Date()).minute
         else {
             return false
         }
-        return minuteDiff < 30
+        return minuteDiff < Constant.CACHE_TIME_OUT
     }
 }
