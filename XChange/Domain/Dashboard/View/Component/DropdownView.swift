@@ -10,7 +10,7 @@
  
  ### Overview
  - `DropdownView`: A SwiftUI view for displaying a dropdown list of currency items.
- - `items`: An array of `CurrencyRateModel` representing the currency items to display.
+ - `items`: An array of `CurrencyValueModel` representing the currency items to display.
  - `onItemTapped`: A closure to handle when a currency item is tapped.
  
  This view is designed for presenting a list of currency items in a dropdown format, allowing users to select a specific currency.
@@ -33,11 +33,11 @@ import SwiftUI
  A SwiftUI view for displaying a dropdown list of currency items.
  */
 struct DropdownView: View {
-    /// An array of CurrencyRateModel representing the currency items to display.
-    let items: [CurrencyRateModel]
+    /// An array of CurrencyValueModel representing the currency items to display.
+    let items: [CurrencyValueModel]
     
     /// A closure to handle when a currency item is tapped.
-    let onItemTapped: (CurrencyRateModel) -> Void
+    let onItemTapped: (CurrencyValueModel) -> Void
     
     var body: some View {
         ScrollView {
@@ -52,14 +52,14 @@ struct DropdownView: View {
         .background(
             Rectangle()
                 .fill(Color.cream)
-                .cornerRadius(16)
         )
+        .cornerRadius(16)
     }
 }
 
 extension DropdownView {
     
-    @ViewBuilder private func itemView(at index: Int, for item: CurrencyRateModel) -> some View {
+    @ViewBuilder private func itemView(at index: Int, for item: CurrencyValueModel) -> some View {
         VStack(alignment: .trailing, spacing: 4) {
             Text(item.code)
                 .foregroundColor(Color.blackGray)
@@ -84,8 +84,8 @@ struct DropdownView_Previews: PreviewProvider {
     static var previews: some View {
         DropdownView(
             items: [
-                .init(code: "JPY", name: "Japanese Yen", rate: 10.0),
-                .init(code: "EUR", name: "Euro", rate: 300.0)
+                .init(code: "JPY", name: "Japanese Yen", value: 0.0, rate: 10.0),
+                .init(code: "EUR", name: "Euro", value: 0.0, rate: 300.0)
             ],
             onItemTapped: { _ in
                 print("Tapped")
