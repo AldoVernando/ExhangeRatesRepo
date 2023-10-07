@@ -6,7 +6,7 @@
 //
 
 /**
- This file defines the `CurrencyValueModel` struct, which represents a currency with its code, name, and value. This documentation provides an overview of the struct and its properties.
+ This file defines the `CurrencyValueModel` struct, which represents a currency with its code, name, value, and rate. This documentation provides an overview of the struct and its properties.
 */
 
 import Foundation
@@ -21,6 +21,9 @@ struct CurrencyValueModel {
     /// The currency value.
     var value: Double
     
+    /// The currency rate.
+    var rate: Double
+    
     /**
      Initializes a `CurrencyValueModel` with the specified properties.
 
@@ -28,14 +31,17 @@ struct CurrencyValueModel {
         - code: The currency code, e.g., "USD", "JPY"
         - name: The currency name, e.g., "United States Dollar", "Japanese Yen"
         - value: The currency value.
+        - rate: The currency rate.
      */
     init(
         code: String,
         name: String,
-        value: Double
+        value: Double,
+        rate: Double
     ) {
         self.code = code
         self.name = name
         self.value = value
+        self.rate = rate
     }
 }

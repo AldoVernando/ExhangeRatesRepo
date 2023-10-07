@@ -22,6 +22,7 @@ struct MainAppView: View {
     var body: some View {
         NavigationView {
             DashboardView()
+                .navigationBarHidden(true)
         }
     }
 }

@@ -26,9 +26,9 @@ struct CustomeExchangeShape: Shape {
         
         // Create custom path by adding lines.
         pencil.addLine(to: .init(x: rect.minX, y: rect.minY))
-        pencil.addLine(to: .init(x: rect.midX, y: rect.minY))
-        pencil.addLine(to: .init(x: rect.midX + 20, y: rect.midY))
-        pencil.addLine(to: .init(x: rect.midX, y: rect.maxY))
+        pencil.addLine(to: .init(x: rect.midX - 20, y: rect.minY))
+        pencil.addLine(to: .init(x: rect.midX, y: rect.midY))
+        pencil.addLine(to: .init(x: rect.midX - 20, y: rect.maxY))
         pencil.addLine(to: .init(x: rect.midX, y: rect.maxY))
         pencil.addLine(to: .init(x: rect.minX, y: rect.maxY))
         

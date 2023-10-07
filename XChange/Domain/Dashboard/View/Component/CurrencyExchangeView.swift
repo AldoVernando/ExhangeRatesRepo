@@ -71,10 +71,10 @@ struct CurrencyExchangeView: View {
                         .fontWeight(.bold)
                         .font(.title)
                     
-                    Text(String(base.value.currency))
+                    Text(String(base.value.usdCurrency))
                         .foregroundColor(Color.lightGray)
                         .fontWeight(.semibold)
-                        .font(.headline)
+                        .font(.caption2)
                         .truncationMode(.tail)
                         .frame(width: 150, alignment: .leading)
                         .lineLimit(1)
@@ -97,7 +97,7 @@ struct CurrencyExchangeView: View {
                     Text(String(target.value.currency))
                         .foregroundColor(.gray)
                         .fontWeight(.semibold)
-                        .font(.headline)
+                        .font(.caption2)
                         .truncationMode(.tail)
                         .frame(width: 150, alignment: .trailing)
                         .lineLimit(1)
@@ -115,12 +115,14 @@ struct CurrencyExchangeView_Previews: PreviewProvider {
             base: .init(
                 code: "USD",
                 name: "United States Dollar",
-                value: 0.0
+                value: 0.0,
+                rate: 0.0
             ),
             target: .init(
                 code: "JPY",
                 name: "Japanese Yen",
-                value: 0.0
+                value: 0.0,
+                rate: 0.0
             ),
             onTargetCurrencyTapped: {
                 print("Tapped")

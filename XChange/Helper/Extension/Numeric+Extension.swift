@@ -35,5 +35,12 @@ extension Numeric {
      
      This property uses the default currency style and locale for formatting.
      */
-    var currency: String { formatted(style: .currency) }
+    var currency: String { formatted(style: .currency, locale: .init(identifier: "")) }
+    
+    /**
+     A computed property that formats the numeric value as a currency string in united states locale.
+     
+     This property uses the default currency style and en_US locale for formatting.
+     */
+    var usdCurrency: String { formatted(style: .currency, locale: .init(identifier: "en_US")) }
 }

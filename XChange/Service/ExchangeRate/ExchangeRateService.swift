@@ -57,7 +57,9 @@ final class ExchangeRateService: ExchangeRateServiceProtocol {
             let latestRates: RatesResponseModel = try await fetchLatestRates()
             let currencies: [String: String] = try await fetchCurrencies()
             
-            let result: [CurrencyRateModel]? = latestRates.rates?.compactMap { (code: String, value: Double) in
+            let rates: [Dictionary<String, Double>.Element]? = latestRates.rates?.sorted(by: { $0.key < $1.key })
+            
+            let result: [CurrencyRateModel]? = rates?.compactMap { (code: String, value: Double) in
                 let model: CurrencyRateModel = .init(
                     code: code,
                     name: currencies[code] ?? "-",

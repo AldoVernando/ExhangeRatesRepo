@@ -19,6 +19,8 @@
 		60626B8E2AD0627C00A3ABF1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60626B8D2AD0627C00A3ABF1 /* Date+Extension.swift */; };
 		60CCA8F32AD15A9C000DD946 /* CurrencyValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8F22AD15A9C000DD946 /* CurrencyValueModel.swift */; };
 		60CCA8F72AD15DDB000DD946 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8F62AD15DDB000DD946 /* Color+Extension.swift */; };
+		60CCA8F92AD18B3F000DD946 /* CurrencyTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8F82AD18B3F000DD946 /* CurrencyTextfieldView.swift */; };
+		60CCA8FB2AD195D2000DD946 /* TextfieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */; };
 		60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */; };
 		60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */; };
 		60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */; };
@@ -76,6 +78,8 @@
 		60626B8D2AD0627C00A3ABF1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		60CCA8F22AD15A9C000DD946 /* CurrencyValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyValueModel.swift; sourceTree = "<group>"; };
 		60CCA8F62AD15DDB000DD946 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		60CCA8F82AD18B3F000DD946 /* CurrencyTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextfieldView.swift; sourceTree = "<group>"; };
+		60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldObserver.swift; sourceTree = "<group>"; };
 		60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeView.swift; sourceTree = "<group>"; };
 		60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeShape.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				60D4CE322AD152B40036B4CB /* View Modifier */,
 				60626B8A2AD060E500A3ABF1 /* Extension */,
 				60626B772AD041AF00A3ABF1 /* Constant.swift */,
+				60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */,
 				60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */,
 				60D4CE282AD147440036B4CB /* DropdownView.swift */,
+				60CCA8F82AD18B3F000DD946 /* CurrencyTextfieldView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -519,7 +525,9 @@
 				60626B7B2AD049BF00A3ABF1 /* RatesResponseModel.swift in Sources */,
 				60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */,
 				60626B782AD041AF00A3ABF1 /* Constant.swift in Sources */,
+				60CCA8F92AD18B3F000DD946 /* CurrencyTextfieldView.swift in Sources */,
 				60D4CE342AD152DB0036B4CB /* DismissKeyboardViewModifier.swift in Sources */,
+				60CCA8FB2AD195D2000DD946 /* TextfieldObserver.swift in Sources */,
 				60D67D6D2ACD9B6100EA7082 /* Persistence.swift in Sources */,
 				603A46422ACF20DE00D34F99 /* UserDefaultsKey.swift in Sources */,
 				60D67DB12ACDA4E300EA7082 /* NetworkError.swift in Sources */,

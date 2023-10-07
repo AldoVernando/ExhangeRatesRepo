@@ -14,18 +14,18 @@ struct DashboardView: View {
             storage: CurrencyPersistenceManager()
         )
     )
-        
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            VStack(spacing: 20) {
-                
+            
+            VStack(spacing: 8) {
                 CurrencyExchangeView(
                     base: vm.baseCurrency,
                     target: vm.targetCurrency,
                     onTargetCurrencyTapped: vm.onTargetCurrencyTapped
                 )
                 
-                textfieldView()
+                textfieldSectionView()
                     .padding(.horizontal, 2)
                 
                 Spacer()
@@ -42,7 +42,7 @@ struct DashboardView: View {
                 .opacity(vm.isDropdownHidden ? 0 : 1)
             }
         }
-        .padding()
+        .padding(8)
         .dismissKeyboardHandler()
         .onAppear {
             vm.intiateView()
@@ -52,22 +52,28 @@ struct DashboardView: View {
 
 extension DashboardView {
     
-    @ViewBuilder private func textfieldView() -> some View {
-        HStack(alignment: .center, spacing: 8) {
-            Text("$")
-                .foregroundColor(Color.blackGray)
-                .fontWeight(.semibold)
-                .font(.title)
+    @ViewBuilder private func textfieldSectionView() -> some View {
+        HStack {
+            VStack(spacing: 8) {
+                CurrencyTextfieldView(
+                    symbol: "$",
+                    placeholder: "0.00",
+                    text: $vm.baseCurrencyTextfield.text
+                )
+                
+                CurrencyTextfieldView(
+                    symbol: "¤",
+                    placeholder: "0.00",
+                    text: $vm.targetCurrencyTextfield.text
+                )
+            }
             
-            TextField("0.00", text: $vm.currencyTextfield)
-                .font(.headline)
-                .keyboardType(.decimalPad)
+            Image(systemName: "arrow.left.arrow.right")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.darkGray)
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(lineWidth: 2)
-        )    }
+    }
 }
 
 struct DashboardView_Previews: PreviewProvider {

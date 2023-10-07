@@ -28,4 +28,13 @@ struct Constant {
     
     /// The time interval in minutes for cache data to be considered valid.
     static let CACHE_TIME_OUT: Int = 30
+    
+    /// The default value for max digit limit for textfield input.
+    static let DEFAULT_MAX_DIGIT_LIMIT: Int = 10
+    
+    /// The default code for base currency.
+    static let DEFAULT_BASE_CURRENCY_CODE: String = "USD"
+    
+    /// The default code for target currency.
+    static let DEFAULT_TARGET_CURRENCY_CODE: String = "JPY"
 }
