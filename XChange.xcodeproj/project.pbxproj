@@ -20,6 +20,10 @@
 		60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */; };
 		60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */; };
 		60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */; };
+		60D4CE212AD13DA10036B4CB /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE202AD13DA10036B4CB /* DashboardViewModel.swift */; };
+		60D4CE232AD1409D0036B4CB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE222AD1409D0036B4CB /* String+Extension.swift */; };
+		60D4CE252AD142100036B4CB /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE242AD142100036B4CB /* Formatter+Extension.swift */; };
+		60D4CE272AD1422D0036B4CB /* Numeric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE262AD1422D0036B4CB /* Numeric+Extension.swift */; };
 		60D67D642ACD9B5F00EA7082 /* XChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D67D632ACD9B5F00EA7082 /* XChangeApp.swift */; };
 		60D67D682ACD9B6100EA7082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60D67D672ACD9B6100EA7082 /* Assets.xcassets */; };
 		60D67D6B2ACD9B6100EA7082 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60D67D6A2ACD9B6100EA7082 /* Preview Assets.xcassets */; };
@@ -67,6 +71,10 @@
 		60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeView.swift; sourceTree = "<group>"; };
 		60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeShape.swift; sourceTree = "<group>"; };
+		60D4CE202AD13DA10036B4CB /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		60D4CE222AD1409D0036B4CB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		60D4CE242AD142100036B4CB /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
+		60D4CE262AD1422D0036B4CB /* Numeric+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Extension.swift"; sourceTree = "<group>"; };
 		60D67D602ACD9B5F00EA7082 /* XChange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XChange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D67D632ACD9B5F00EA7082 /* XChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeApp.swift; sourceTree = "<group>"; };
 		60D67D672ACD9B6100EA7082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				60626B8D2AD0627C00A3ABF1 /* Date+Extension.swift */,
+				60D4CE222AD1409D0036B4CB /* String+Extension.swift */,
+				60D4CE242AD142100036B4CB /* Formatter+Extension.swift */,
+				60D4CE262AD1422D0036B4CB /* Numeric+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 		60D4CE152AD12DBC0036B4CB /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				60D4CE202AD13DA10036B4CB /* DashboardViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -469,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60626B6F2AD03CDA00A3ABF1 /* ExchangeRateService.swift in Sources */,
+				60D4CE272AD1422D0036B4CB /* Numeric+Extension.swift in Sources */,
 				60626B7B2AD049BF00A3ABF1 /* RatesResponseModel.swift in Sources */,
 				60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */,
 				60626B782AD041AF00A3ABF1 /* Constant.swift in Sources */,
@@ -480,9 +493,12 @@
 				60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */,
 				60D67DA62ACDA0A100EA7082 /* MainAppView.swift in Sources */,
 				60D67DB52ACDB75C00EA7082 /* GeneralErrorModel.swift in Sources */,
+				60D4CE232AD1409D0036B4CB /* String+Extension.swift in Sources */,
 				60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */,
 				60D67DAB2ACDA31A00EA7082 /* NetworkManager.swift in Sources */,
 				603A463B2ACF1C8A00D34F99 /* UserDefaultsManager.swift in Sources */,
+				60D4CE252AD142100036B4CB /* Formatter+Extension.swift in Sources */,
+				60D4CE212AD13DA10036B4CB /* DashboardViewModel.swift in Sources */,
 				60626B822AD0523900A3ABF1 /* CurrencyPersistenceManager.swift in Sources */,
 				60626B872AD0564000A3ABF1 /* CurrencyRateModel.swift in Sources */,
 				60D67D702ACD9B6100EA7082 /* XChange.xcdatamodeld in Sources */,

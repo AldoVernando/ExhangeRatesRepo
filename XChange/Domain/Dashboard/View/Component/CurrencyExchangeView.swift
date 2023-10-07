@@ -72,10 +72,13 @@ struct CurrencyExchangeView: View {
                         .fontWeight(.bold)
                         .font(.title)
                     
-                    Text(String(baseValue))
+                    Text(String(baseValue.currency))
                         .foregroundColor(Color("light-gray"))
                         .fontWeight(.semibold)
                         .font(.headline)
+                        .truncationMode(.tail)
+                        .frame(width: 150, alignment: .leading)
+                        .lineLimit(1)
                 }
                 
                 Spacer()
@@ -92,16 +95,18 @@ struct CurrencyExchangeView: View {
                             .frame(width: 20, height: 20)
                     }
                     
-                    Text(String(targetValue))
+                    Text(String(targetValue.currency))
                         .foregroundColor(.gray)
                         .fontWeight(.semibold)
                         .font(.headline)
+                        .truncationMode(.tail)
+                        .frame(width: 150, alignment: .trailing)
+                        .lineLimit(1)
                 }
                 .onTapGesture(perform: onTargetCurrencyTapped)
             }
             .padding()
         }
-        .padding()
     }
 }
 
