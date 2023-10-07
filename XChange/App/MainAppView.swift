@@ -11,8 +11,7 @@ struct MainAppView: View {
     
     var body: some View {
         NavigationView {
-            Text("Main App View")
-                .navigationTitle("XChange")
+            DashboardView()
         }
     }
 }
