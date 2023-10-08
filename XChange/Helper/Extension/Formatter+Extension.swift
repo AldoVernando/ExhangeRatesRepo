@@ -15,16 +15,4 @@ extension Formatter {
      A static instance of `NumberFormatter` for basic number formatting.
      */
     static let number = NumberFormatter()
-    
-    /**
-     A static instance of `NumberFormatter` configured to format numbers with a grouping separator.
-     
-     This formatter is useful for formatting numbers with a grouping separator (e.g., comma or space).
-     */
-    static let withSeparator: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.groupingSeparator = " "
-        return formatter
-    }()
 }
