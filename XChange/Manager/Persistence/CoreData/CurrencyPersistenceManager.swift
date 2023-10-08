@@ -59,6 +59,13 @@ protocol CurrencyPersistenceManagerProtocol {
  A class responsible for managing the persistence of currency data using Core Data.
  */
 final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
+    private let managedContext: NSManagedObjectContext
+    
+    init(
+        managedContext: NSManagedObjectContext? = nil
+    ) {
+        self.managedContext = managedContext ?? PersistenceController.shared.container.viewContext
+    }
     
     /**
      Creates a new currency data entry in the Core Data store.
@@ -67,7 +74,6 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
      - model: The currency model to be created.
      */
     func create(data model: CurrencyRateModel) {
-        let managedContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
         guard let currencyEntity: NSEntityDescription = .entity(forEntityName: "Currency", in: managedContext) else {
             return
         }
@@ -93,7 +99,6 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
      - Returns: An array of currency models or nil if no data is found.
      */
     func retrieve() -> [CurrencyRateModel]? {
-        let managedContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "Currency")
         var currencies: [CurrencyRateModel] = []
         
@@ -125,7 +130,6 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
      - model: The currency model with updated data.
      */
     func update(data model: CurrencyRateModel) {
-        let managedContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "Currency")
         fetchRequest.predicate = NSPredicate(format: "code = %@", model.code)
         
@@ -152,7 +156,6 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
      - model: The currency model to be deleted.
      */
     func delete(data model: CurrencyRateModel) {
-        let managedContext = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "Currency")
         fetchRequest.predicate = NSPredicate(format: "code = %@", model.code)
         
@@ -176,7 +179,6 @@ final class CurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
      - model: The currency model to be checked.
      */
     func isDataExists(data model: CurrencyRateModel) -> Bool {
-        let managedContext = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = .init(entityName: "Currency")
         fetchRequest.predicate = NSPredicate(format: "code = %@", model.code)
         
