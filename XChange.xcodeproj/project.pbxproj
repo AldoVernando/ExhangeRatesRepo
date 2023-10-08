@@ -33,6 +33,9 @@
 		60CCA9272AD29B23000DD946 /* CurrencyPersitenceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9262AD29B23000DD946 /* CurrencyPersitenceManagerTests.swift */; };
 		60CCA92C2AD2A4EE000DD946 /* UserDefaultsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA92B2AD2A4EE000DD946 /* UserDefaultsManagerTests.swift */; };
 		60CCA92F2AD2A51C000DD946 /* TestUserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA92E2AD2A51C000DD946 /* TestUserDefaultKey.swift */; };
+		60CCA9352AD2A821000DD946 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9342AD2A821000DD946 /* MockNetworkManager.swift */; };
+		60CCA9372AD2A852000DD946 /* MockCurrencyPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9362AD2A852000DD946 /* MockCurrencyPersistenceManager.swift */; };
+		60CCA9392AD2A87F000DD946 /* ExchangeRateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */; };
 		60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */; };
 		60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */; };
 		60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */; };
@@ -104,6 +107,9 @@
 		60CCA9262AD29B23000DD946 /* CurrencyPersitenceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPersitenceManagerTests.swift; sourceTree = "<group>"; };
 		60CCA92B2AD2A4EE000DD946 /* UserDefaultsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerTests.swift; sourceTree = "<group>"; };
 		60CCA92E2AD2A51C000DD946 /* TestUserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserDefaultKey.swift; sourceTree = "<group>"; };
+		60CCA9342AD2A821000DD946 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		60CCA9362AD2A852000DD946 /* MockCurrencyPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrencyPersistenceManager.swift; sourceTree = "<group>"; };
+		60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateServiceTests.swift; sourceTree = "<group>"; };
 		60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeView.swift; sourceTree = "<group>"; };
 		60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeShape.swift; sourceTree = "<group>"; };
@@ -293,6 +299,24 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		60CCA9302AD2A7CB000DD946 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				60CCA9332AD2A817000DD946 /* Mock */,
+				60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		60CCA9332AD2A817000DD946 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				60CCA9342AD2A821000DD946 /* MockNetworkManager.swift */,
+				60CCA9362AD2A852000DD946 /* MockCurrencyPersistenceManager.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		60D4CE132AD12D980036B4CB /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +411,7 @@
 		60D67D782ACD9B6100EA7082 /* XChangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				60CCA9302AD2A7CB000DD946 /* Service */,
 				60CCA9022AD277F0000DD946 /* Extension */,
 				60CCA9012AD277D8000DD946 /* Network */,
 				60CCA9252AD29AE0000DD946 /* Persistence */,
@@ -639,11 +664,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CCA92C2AD2A4EE000DD946 /* UserDefaultsManagerTests.swift in Sources */,
+				60CCA9352AD2A821000DD946 /* MockNetworkManager.swift in Sources */,
+				60CCA9372AD2A852000DD946 /* MockCurrencyPersistenceManager.swift in Sources */,
 				60CCA9272AD29B23000DD946 /* CurrencyPersitenceManagerTests.swift in Sources */,
 				60CCA9202AD28F99000DD946 /* MockURLProtocol.swift in Sources */,
 				60CCA9242AD29974000DD946 /* NetworkErrorTests.swift in Sources */,
 				60CCA9222AD29515000DD946 /* NetworkEndpointTests.swift in Sources */,
 				60CCA91D2AD28C6D000DD946 /* NetworkManagerTests.swift in Sources */,
+				60CCA9392AD2A87F000DD946 /* ExchangeRateServiceTests.swift in Sources */,
 				60D67D7A2ACD9B6100EA7082 /* XChangeTests.swift in Sources */,
 				60CCA90A2AD28010000DD946 /* NumericExtensionTests.swift in Sources */,
 				60CCA9152AD289A1000DD946 /* TestNetworkEndpoint.swift in Sources */,
