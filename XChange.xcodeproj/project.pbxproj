@@ -36,6 +36,7 @@
 		60CCA9352AD2A821000DD946 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9342AD2A821000DD946 /* MockNetworkManager.swift */; };
 		60CCA9372AD2A852000DD946 /* MockCurrencyPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9362AD2A852000DD946 /* MockCurrencyPersistenceManager.swift */; };
 		60CCA9392AD2A87F000DD946 /* ExchangeRateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */; };
+		60CCA93B2AD2AD53000DD946 /* ExchangeRateEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA93A2AD2AD53000DD946 /* ExchangeRateEndpointTests.swift */; };
 		60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */; };
 		60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */; };
 		60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */; };
@@ -110,6 +111,7 @@
 		60CCA9342AD2A821000DD946 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		60CCA9362AD2A852000DD946 /* MockCurrencyPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrencyPersistenceManager.swift; sourceTree = "<group>"; };
 		60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateServiceTests.swift; sourceTree = "<group>"; };
+		60CCA93A2AD2AD53000DD946 /* ExchangeRateEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateEndpointTests.swift; sourceTree = "<group>"; };
 		60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeView.swift; sourceTree = "<group>"; };
 		60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeShape.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				60CCA9332AD2A817000DD946 /* Mock */,
 				60CCA9382AD2A87F000DD946 /* ExchangeRateServiceTests.swift */,
+				60CCA93A2AD2AD53000DD946 /* ExchangeRateEndpointTests.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CCA93B2AD2AD53000DD946 /* ExchangeRateEndpointTests.swift in Sources */,
 				60CCA92C2AD2A4EE000DD946 /* UserDefaultsManagerTests.swift in Sources */,
 				60CCA9352AD2A821000DD946 /* MockNetworkManager.swift in Sources */,
 				60CCA9372AD2A852000DD946 /* MockCurrencyPersistenceManager.swift in Sources */,
