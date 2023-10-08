@@ -35,6 +35,7 @@ final class DashboardViewModelTests: XCTestCase {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { [weak self] in
             XCTAssertFalse(self?.viewModel.currenyRates.isEmpty ?? true)
+            XCTAssertEqual(self?.viewModel.state, .loaded)
         }
     }
     

@@ -30,12 +30,13 @@ final class DashboardViewModel: ObservableObject {
     @Published var baseCurrencyTextfield: TextfieldObserver = .init(debounceTime: 0.5)
     @Published var targetCurrencyTextfield: TextfieldObserver = .init(debounceTime: 0.5)
     @Published var isDropdownHidden: Bool = true
+    @Published var state: ViewState = .loading
     
     // Data
     @Published var baseCurrency: CurrencyValueModel = .init(
         code: "USD",
         name: "United States Dollar",
-        value: 1.0,
+        value: 0.0,
         rate: 0.0
     )
     @Published var targetCurrency: CurrencyValueModel = .init(
@@ -154,7 +155,11 @@ extension DashboardViewModel {
      - Usage: Called when the user enters values in the currency textfields.
      */
     private func convertCurrency(from base: CurrencyValueModel, to target: CurrencyValueModel) {
-        guard base.value > 0 else { return }
+        guard base.value > 0 else {
+            baseCurrencyTextfield.text.removeAll()
+            targetCurrencyTextfield.text.removeAll()
+            return
+        }
         isCalculation = true
         
         var convertedValue: Double
@@ -198,7 +203,7 @@ extension DashboardViewModel {
                     value: 0.0,
                     rate: defaultCurrency.rate
                 )
-                baseCurrencyTextfield.text = String(baseCurrency.value)
+                state = .loaded
             }
         } catch {
             print("[Log] Throw error while fetching currency rates data.")

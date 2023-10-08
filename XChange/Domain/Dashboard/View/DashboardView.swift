@@ -108,23 +108,26 @@ extension DashboardView {
                 .offset(y: 50)
             
             ScrollView {
-                RefreshableScrollView(
-                    coordinateSpace: .named("RefreshableScrollView"),
-                    onRefresh: vm.onRefreshCurrencyRates
-                )
-                
-                LazyVStack(spacing: 8) {
-                    ForEach(vm.currenyRates, id: \.code) { currency in
-                        CurrencyItemView(
-                            base: vm.baseCurrency,
-                            currency: currency
-                        )
-                        .padding(.horizontal, 8)
+                if vm.state == .loading {
+                    LoadingSkeletonView()
+                } else {
+                    RefreshableScrollView(
+                        coordinateSpace: .named("RefreshableScrollView"),
+                        onRefresh: vm.onRefreshCurrencyRates
+                    )
+                    
+                    LazyVStack(spacing: 8) {
+                        ForEach(vm.currenyRates, id: \.code) { currency in
+                            CurrencyItemView(
+                                base: vm.baseCurrency,
+                                currency: currency
+                            )
+                            .padding(.horizontal, 8)
+                        }
                     }
+                    .padding(.bottom, 16)
                 }
-                .padding(.bottom, 16)
-            }
-            .coordinateSpace(name: "RefreshableScrollView")
+            }.coordinateSpace(name: "RefreshableScrollView")
         }
     }
 }
