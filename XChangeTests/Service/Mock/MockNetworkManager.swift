@@ -9,7 +9,7 @@ import Foundation
 
 @testable import XChange
 
-// Mock implementations of NetworkManagerProtocol and CurrencyPersistenceManagerProtocol
+// Mock implementation of NetworkManagerProtocol
 final class MockNetworkManager: NetworkManagerProtocol {
     
     // Define mock data to simulate network responses

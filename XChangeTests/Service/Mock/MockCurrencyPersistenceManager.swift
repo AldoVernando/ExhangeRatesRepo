@@ -9,6 +9,7 @@ import Foundation
 
 @testable import XChange
 
+// Mock implementation of CurrencyPersistenceManagerProtocol
 class MockCurrencyPersistenceManager: CurrencyPersistenceManagerProtocol {
     var currencies: [CurrencyRateModel] = []
     
