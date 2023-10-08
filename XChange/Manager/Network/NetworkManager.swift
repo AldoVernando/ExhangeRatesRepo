@@ -35,9 +35,11 @@ final class NetworkManager: NetworkManagerProtocol {
     private var session: URLSession
     private let decoder: JSONDecoder
     
-    init() {
+    init(
+        session: URLSession? = nil
+    ) {
         let configuration = URLSessionConfiguration.default
-        session = URLSession(configuration: configuration)
+        self.session = session ?? URLSession(configuration: configuration)
         decoder = .init()
     }
     

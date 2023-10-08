@@ -26,7 +26,7 @@ protocol NetworkErrorProtocol: Error {
 /**
  An enumeration representing various network-related errors.
  */
-enum NetworkError: NetworkErrorProtocol {
+enum NetworkError: NetworkErrorProtocol, Equatable {
     // Possible error cases
     
     case badRequest(description: String?)

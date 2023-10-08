@@ -23,6 +23,13 @@
 		60CCA8FB2AD195D2000DD946 /* TextfieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */; };
 		60CCA8FD2AD1AF8C000DD946 /* CurrencyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8FC2AD1AF8C000DD946 /* CurrencyItemView.swift */; };
 		60CCA9002AD1BE77000DD946 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA8FF2AD1BE77000DD946 /* RefreshableScrollView.swift */; };
+		60CCA9062AD2785D000DD946 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9052AD2785D000DD946 /* DateExtensionTests.swift */; };
+		60CCA90A2AD28010000DD946 /* NumericExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9092AD28010000DD946 /* NumericExtensionTests.swift */; };
+		60CCA9152AD289A1000DD946 /* TestNetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9142AD289A1000DD946 /* TestNetworkEndpoint.swift */; };
+		60CCA91D2AD28C6D000DD946 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA91C2AD28C6D000DD946 /* NetworkManagerTests.swift */; };
+		60CCA9202AD28F99000DD946 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA91F2AD28F99000DD946 /* MockURLProtocol.swift */; };
+		60CCA9222AD29515000DD946 /* NetworkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9212AD29515000DD946 /* NetworkEndpointTests.swift */; };
+		60CCA9242AD29974000DD946 /* NetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCA9232AD29974000DD946 /* NetworkErrorTests.swift */; };
 		60D4CE1B2AD12E4E0036B4CB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */; };
 		60D4CE1D2AD12F280036B4CB /* CurrencyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */; };
 		60D4CE1F2AD132320036B4CB /* CustomExchangeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */; };
@@ -84,6 +91,13 @@
 		60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldObserver.swift; sourceTree = "<group>"; };
 		60CCA8FC2AD1AF8C000DD946 /* CurrencyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyItemView.swift; sourceTree = "<group>"; };
 		60CCA8FF2AD1BE77000DD946 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
+		60CCA9052AD2785D000DD946 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		60CCA9092AD28010000DD946 /* NumericExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensionTests.swift; sourceTree = "<group>"; };
+		60CCA9142AD289A1000DD946 /* TestNetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkEndpoint.swift; sourceTree = "<group>"; };
+		60CCA91C2AD28C6D000DD946 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		60CCA91F2AD28F99000DD946 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		60CCA9212AD29515000DD946 /* NetworkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpointTests.swift; sourceTree = "<group>"; };
+		60CCA9232AD29974000DD946 /* NetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorTests.swift; sourceTree = "<group>"; };
 		60D4CE1A2AD12E4E0036B4CB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeView.swift; sourceTree = "<group>"; };
 		60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeShape.swift; sourceTree = "<group>"; };
@@ -151,8 +165,8 @@
 		603A46392ACF1C1C00D34F99 /* User Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				603A463A2ACF1C8A00D34F99 /* UserDefaultsManager.swift */,
 				603A46412ACF20DE00D34F99 /* UserDefaultsKey.swift */,
+				603A463A2ACF1C8A00D34F99 /* UserDefaultsManager.swift */,
 			);
 			path = "User Defaults";
 			sourceTree = "<group>";
@@ -168,9 +182,9 @@
 		60626B702AD03D0B00A3ABF1 /* ExchangeRate */ = {
 			isa = PBXGroup;
 			children = (
-				60626B732AD03F8300A3ABF1 /* Model */,
-				60626B6E2AD03CDA00A3ABF1 /* ExchangeRateService.swift */,
 				60626B712AD03D1C00A3ABF1 /* ExchangeRateEndpoint.swift */,
+				60626B6E2AD03CDA00A3ABF1 /* ExchangeRateService.swift */,
+				60626B732AD03F8300A3ABF1 /* Model */,
 			);
 			path = ExchangeRate;
 			sourceTree = "<group>";
@@ -187,11 +201,11 @@
 		60626B762AD041A500A3ABF1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				60D4CE322AD152B40036B4CB /* View Modifier */,
-				60626B8A2AD060E500A3ABF1 /* Extension */,
 				60626B772AD041AF00A3ABF1 /* Constant.swift */,
-				60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */,
+				60626B8A2AD060E500A3ABF1 /* Extension */,
 				60CCA8FF2AD1BE77000DD946 /* RefreshableScrollView.swift */,
+				60CCA8FA2AD195D2000DD946 /* TextfieldObserver.swift */,
+				60D4CE322AD152B40036B4CB /* View Modifier */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -199,13 +213,13 @@
 		60626B8A2AD060E500A3ABF1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				60CCA8F62AD15DDB000DD946 /* Color+Extension.swift */,
 				60626B8D2AD0627C00A3ABF1 /* Date+Extension.swift */,
-				60D4CE222AD1409D0036B4CB /* String+Extension.swift */,
 				60D4CE242AD142100036B4CB /* Formatter+Extension.swift */,
 				60D4CE262AD1422D0036B4CB /* Numeric+Extension.swift */,
-				60D4CE2E2AD1521C0036B4CB /* ViewModifier+Extension.swift */,
+				60D4CE222AD1409D0036B4CB /* String+Extension.swift */,
 				60D4CE302AD152930036B4CB /* View+Extension.swift */,
-				60CCA8F62AD15DDB000DD946 /* Color+Extension.swift */,
+				60D4CE2E2AD1521C0036B4CB /* ViewModifier+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,6 +238,35 @@
 				60CCA8F22AD15A9C000DD946 /* CurrencyValueModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		60CCA9012AD277D8000DD946 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				60CCA90D2AD2888D000DD946 /* Mock */,
+				60CCA91C2AD28C6D000DD946 /* NetworkManagerTests.swift */,
+				60CCA9212AD29515000DD946 /* NetworkEndpointTests.swift */,
+				60CCA9232AD29974000DD946 /* NetworkErrorTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		60CCA9022AD277F0000DD946 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				60CCA9052AD2785D000DD946 /* DateExtensionTests.swift */,
+				60CCA9092AD28010000DD946 /* NumericExtensionTests.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		60CCA90D2AD2888D000DD946 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				60CCA9142AD289A1000DD946 /* TestNetworkEndpoint.swift */,
+				60CCA91F2AD28F99000DD946 /* MockURLProtocol.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		60D4CE132AD12D980036B4CB /* Dashboard */ = {
@@ -257,10 +300,10 @@
 			isa = PBXGroup;
 			children = (
 				60D4CE1C2AD12F280036B4CB /* CurrencyExchangeView.swift */,
+				60CCA8FC2AD1AF8C000DD946 /* CurrencyItemView.swift */,
+				60CCA8F82AD18B3F000DD946 /* CurrencyTextfieldView.swift */,
 				60D4CE1E2AD132320036B4CB /* CustomExchangeShape.swift */,
 				60D4CE282AD147440036B4CB /* DropdownView.swift */,
-				60CCA8F82AD18B3F000DD946 /* CurrencyTextfieldView.swift */,
-				60CCA8FC2AD1AF8C000DD946 /* CurrencyItemView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -320,6 +363,8 @@
 		60D67D782ACD9B6100EA7082 /* XChangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				60CCA9022AD277F0000DD946 /* Extension */,
+				60CCA9012AD277D8000DD946 /* Network */,
 				60D67D792ACD9B6100EA7082 /* XChangeTests.swift */,
 			);
 			path = XChangeTests;
@@ -371,8 +416,8 @@
 		60D67DA42ACDA08A00EA7082 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				603A46392ACF1C1C00D34F99 /* User Defaults */,
 				603A46352ACF1BF800D34F99 /* CoreData */,
+				603A46392ACF1C1C00D34F99 /* User Defaults */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -381,9 +426,9 @@
 			isa = PBXGroup;
 			children = (
 				60D67DB62ACDB76300EA7082 /* Model */,
-				60D67DAA2ACDA31A00EA7082 /* NetworkManager.swift */,
 				60D67DAE2ACDA3B900EA7082 /* NetworkEndpoint.swift */,
 				60D67DB02ACDA4E300EA7082 /* NetworkError.swift */,
+				60D67DAA2ACDA31A00EA7082 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -568,7 +613,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CCA9202AD28F99000DD946 /* MockURLProtocol.swift in Sources */,
+				60CCA9242AD29974000DD946 /* NetworkErrorTests.swift in Sources */,
+				60CCA9222AD29515000DD946 /* NetworkEndpointTests.swift in Sources */,
+				60CCA91D2AD28C6D000DD946 /* NetworkManagerTests.swift in Sources */,
 				60D67D7A2ACD9B6100EA7082 /* XChangeTests.swift in Sources */,
+				60CCA90A2AD28010000DD946 /* NumericExtensionTests.swift in Sources */,
+				60CCA9152AD289A1000DD946 /* TestNetworkEndpoint.swift in Sources */,
+				60CCA9062AD2785D000DD946 /* DateExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
